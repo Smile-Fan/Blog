@@ -1,5 +1,5 @@
 <template>
-  <div class="full-page-container">
+  <div class="full-page-container" ref="fullPage">
     <el-avatar :src="require('@/assets/Avatar.png')" :size="120"></el-avatar>
     <div class="text">
       <p :class="this.active ? 'active-text' : ''" class="blog-name">
@@ -27,12 +27,18 @@ export default {
       return this.flag;
     },
   },
-  mounted() {},
+  mounted() {
+    this.$refs.fullPage.style.width =
+      document.documentElement.clientWidth + "px";
+    this.$refs.fullPage.style.height =
+      document.documentElement.clientHeight + "px";
+  },
   methods: {
     clickBtn() {
       this.flag = true;
     },
   },
+  // watch() {},
 };
 </script>
 
@@ -42,8 +48,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
   color: aliceblue;
   overflow: hidden;
   p {
@@ -90,8 +94,8 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     z-index: -2;
   }
   .down-img {

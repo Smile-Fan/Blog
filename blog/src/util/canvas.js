@@ -1,7 +1,7 @@
 export default function () {
     var canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
     var ctx = canvas.getContext("2d");
     //创建小球的构造函数
     function Ball() {
@@ -36,8 +36,7 @@ export default function () {
     }
     //存储所有的小球
     var balls = [];
-    //创建200个小球
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 150; i++) {
         var ball = new Ball();
         balls.push(ball);
     }
@@ -64,6 +63,10 @@ export default function () {
     //判断是否划线
 
     function drawLine() {
+        var gradient = ctx.createLinearGradient(0, 0, 170, 0);
+        gradient.addColorStop("0", "white");
+        gradient.addColorStop("0.5", "#00ff00");
+        gradient.addColorStop("1.0", "#8b00ff");
         for (var i = 0; i < balls.length; i++) {
             balls[i].draw();
             balls[i].move();
@@ -73,7 +76,7 @@ export default function () {
                         ctx.beginPath();
                         ctx.moveTo(balls[i].x, balls[i].y);
                         ctx.lineTo(balls[j].x, balls[j].y);
-                        ctx.strokeStyle = "white";
+                        ctx.strokeStyle = gradient;
                         ctx.globalAlpha = 0.2;
                         ctx.stroke();
                     }
