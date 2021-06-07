@@ -9,9 +9,9 @@
         永远相信美好的事情即将发生
       </p>
     </div>
-    <el-image :src="require('@/assets/bg7.jpg')" class="bg-img"></el-image>
+    <el-image :src="require('@/assets/bg12.jpg')" class="bg-img"></el-image>
     <button @click="clickBtn" style="z-index: 2">点击变化</button>
-    <i class="el-icon-arrow-down down-img"></i>
+    <i class="el-icon-arrow-down down-img" @click="scrolling"></i>
   </div>
 </template>
 
@@ -36,6 +36,9 @@ export default {
   methods: {
     clickBtn() {
       this.flag = true;
+    },
+    scrolling() {
+      this.$emit("scrolling", this.$refs.fullPage);
     },
   },
   // watch() {},

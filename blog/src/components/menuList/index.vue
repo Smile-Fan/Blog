@@ -7,6 +7,10 @@
           :size="120"
         ></el-avatar>
       </el-col>
+      <el-col>
+        <p class="blogTitle">浅忆de博客</p>
+        <p class="mottoTitle">永远相信美好的事情即将发生</p>
+      </el-col>
       <el-col :span="24">
         <span>主题切换：</span>
         <el-switch
@@ -20,19 +24,19 @@
       <el-col>
         <el-row class="router-text">
           <el-col :span="24" class="list router-home">
-            <span>首页</span>
+            <span><router-link to="/all">首页</router-link></span>
           </el-col>
           <el-col :span="24" class="list router-technology">
-            <span>技术笔记</span>
+            <span><router-link to="/notes">技术笔记</router-link></span>
           </el-col>
           <el-col :span="24" class="list router-trap">
-            <span>踩坑日志</span>
+            <span><router-link to="/log">踩坑日志</router-link></span>
           </el-col>
           <el-col :span="24" class="list router-essay">
-            <span>随笔杂谈</span>
+            <span><router-link to="/diary">随笔杂谈</router-link></span>
           </el-col>
           <el-col :span="24" class="list router-about">
-            <span>关于我</span>
+            <span><router-link to="/about">关于我</router-link></span>
           </el-col>
         </el-row>
       </el-col>
@@ -79,8 +83,6 @@ export default {
   font-size: 28px;
   margin: 0 15px;
 }
-.menuList-container {
-}
 .menu {
   position: absolute;
   left: 0;
@@ -101,11 +103,36 @@ export default {
   el-col {
     margin: 10px 5px;
   }
+  .blogTitle {
+    font-size: 18px;
+    color: blueviolet;
+  }
+  .mottoTitle {
+    font-size: 14px;
+    color: #ccc;
+  }
   .router-text {
     margin-top: 30px;
     .list {
       font-size: 18px;
       padding: 15px 10px;
+      cursor: pointer;
+      box-sizing: border-box;
+      span {
+        &:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 3px;
+        }
+        &:hover {
+          border-bottom: 2px solid #e0ffff;
+          // border-
+          // transition: border 1s;
+          color: mediumorchid;
+          border-width: 100%;
+        }
+      }
     }
   }
   .contact {

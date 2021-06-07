@@ -66,7 +66,7 @@ export default function () {
         var gradient = ctx.createLinearGradient(0, 0, 170, 0);
         gradient.addColorStop("0", "white");
         gradient.addColorStop("0.5", "#00ff00");
-        gradient.addColorStop("1.0", "#8b00ff");
+        gradient.addColorStop("1.0", "white");
         for (var i = 0; i < balls.length; i++) {
             balls[i].draw();
             balls[i].move();
